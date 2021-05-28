@@ -8,6 +8,7 @@ import { isUserLoggedIn } from "./actions";
 import { React, useEffect } from "react";
 
 import PrivateRoute from "./components/HOC/PrivateRoute";
+import ProudctList from "./containers/ProductList";
 
 function App() {
   const dispatch = useDispatch();
@@ -22,12 +23,13 @@ function App() {
     }
   }, auth.authenticate);
   return (
-    <div className="App">
+    <div className='App'>
       <Switch>
-        <PrivateRoute path="/" exact component={Home} />
+        <PrivateRoute path='/' exact component={Home} />
 
-        <Route path="/signin" component={Signin} />
-        <Route path="/signup" component={Signup} />
+        <Route path='/signin' component={Signin} />
+        <Route path='/signup' component={Signup} />
+        <Route path='/products' component={ProudctList} />
       </Switch>
     </div>
   );
