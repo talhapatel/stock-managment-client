@@ -5,7 +5,7 @@ const initState = {
   user: {
     username: "",
     email: "",
-    role: [],
+    roles: [],
   },
   authenticate: false,
   authenticating: false,
@@ -15,7 +15,6 @@ const initState = {
 };
 
 export default (state = initState, action) => {
-  console.log(action);
   switch (action.type) {
     case authConstants.LOGIN_REQUEST:
       state = {
