@@ -2,7 +2,6 @@ import { productConstants } from "./constants";
 import axios from "../helpers/axios";
 
 export const addProduct = (product) => {
-  console.log(product);
   return async (dispatch) => {
     dispatch({ type: productConstants.PRODUCT_ADD_REQUEST });
     const res = await axios.post(`/product`, {
@@ -34,8 +33,8 @@ export const getProductList = () => {
     dispatch({ type: productConstants.PRODUCT_GET_REQUEST });
     const res = await axios.get(`/product`);
 
-    if (res.status === "SUCCESS") {
-      const productList = [...res.data.productList];
+    if (res.data.status === "SUCCESS") {
+      const productList = [...res.data.data.productList];
 
       dispatch({
         type: productConstants.PRODUCT_GET_SUCCESS,

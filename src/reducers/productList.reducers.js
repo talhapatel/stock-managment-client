@@ -18,7 +18,7 @@ export default (state = initState, action) => {
     case productConstants.PRODUCT_GET_SUCCESS:
       state = {
         ...state,
-        productList: action.payload.productList,
+        productList: [...action.payload.productList],
         loading: false,
       };
       break;

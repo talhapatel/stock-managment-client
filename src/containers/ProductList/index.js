@@ -12,11 +12,9 @@ import { useDispatch, useSelector } from "react-redux";
 const ProudctList = () => {
   const dispatch = useDispatch();
 
-  const [productList, setProductList] = useState([]);
   const [isShow, setIsShow] = useState(false);
   const [title, setTitle] = useState("");
-
-  console.log(useSelector((state) => state.productList));
+  const productList = useSelector((state) => state.productList.productList);
 
   // all form filed
 
@@ -60,24 +58,34 @@ const ProudctList = () => {
     dispatch(addProduct(product));
   };
 
-  const data = [
-    { id: "1", name: "xyz", price: "100" },
-    { id: "2", name: "fsdf", price: "200" },
-  ];
   const cols = (handleEdit, handleDelete) => {
     return [
-      {
-        title: "ID",
-        key: "id",
-        render: (rowData) => {
-          return <span>{rowData.id}</span>;
-        },
-      },
       {
         title: "Name",
         key: "name",
         render: (rowData) => {
           return <span>{rowData.name}</span>;
+        },
+      },
+      {
+        title: "Slug Name",
+        key: "slug",
+        render: (rowData) => {
+          return <span>{rowData.slug}</span>;
+        },
+      },
+      {
+        title: "Created By",
+        key: "createdBy",
+        render: (rowData) => {
+          return <span>{rowData.createdBy}</span>;
+        },
+      },
+      {
+        title: "Created At",
+        key: "createdDate",
+        render: (rowData) => {
+          return <span>{rowData.createdDate}</span>;
         },
       },
       {
@@ -106,7 +114,7 @@ const ProudctList = () => {
     ];
   };
   return (
-    <Layout sidebar='true'>
+    <Layout sidebar={true}>
       <Container style={{ marginTop: "50px" }}>
         <h2>Product</h2>
         <Row style={{ marginTop: "15px" }}>
@@ -123,7 +131,7 @@ const ProudctList = () => {
               </Col>
               <Col sm={12}>
                 <DataTable
-                  data={data}
+                  data={productList}
                   cols={cols(handleEdit, handleDelete)}
                   isDark={false}
                   hoverable

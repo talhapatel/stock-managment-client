@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 const DataTable = ({ cols, data, bordered, hoverable, striped, isDark }) => {
   return (
-    <div className="table-responsive">
+    <div className='table-responsive'>
       <table
         className={`table ${bordered ? "table-bordered" : "table-borderless"} ${
           hoverable && "table-hover"
@@ -17,13 +17,15 @@ const DataTable = ({ cols, data, bordered, hoverable, striped, isDark }) => {
           </tr>
         </thead>
         <tbody>
-          {data.map((item, index) => (
-            <tr key={index}>
-              {cols.map((col, key) => (
-                <td key={key}>{col.render(item)}</td>
-              ))}
-            </tr>
-          ))}
+          {data &&
+            data.length > 0 &&
+            data.map((item, index) => (
+              <tr key={index}>
+                {cols.map((col, key) => (
+                  <td key={key}>{col.render(item)}</td>
+                ))}
+              </tr>
+            ))}
         </tbody>
       </table>
     </div>
