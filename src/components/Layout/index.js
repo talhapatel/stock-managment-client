@@ -1,5 +1,6 @@
 import React from "react";
-import { Col, Container, NavLink, Row } from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
+import { NavLink } from "react-router-dom";
 import Header from "../Header";
 import "./style.css";
 const Layout = (props) => {
@@ -9,24 +10,24 @@ const Layout = (props) => {
       {props.sidebar ? (
         <Container fluid>
           <Row>
-            <Col md={2} className="sidebar">
+            <Col md={2} className='sidebar'>
               <ul>
                 <li>
-                  <NavLink exact to={`/`}>
+                  <NavLink exact='true' to='/'>
                     Home
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink to={`/page`}>Page</NavLink>
+                  <NavLink to='/page'>Page</NavLink>
                 </li>
                 <li>
-                  <NavLink to={`/category`}>Category</NavLink>
+                  <NavLink to='/category'>Category</NavLink>
                 </li>
                 <li>
-                  <NavLink to={`/products`}>Products</NavLink>
+                  <NavLink to='/products'>Products</NavLink>
                 </li>
                 <li>
-                  <NavLink to={`/orders`}>Orders</NavLink>
+                  <NavLink to='/orders'>Orders</NavLink>
                 </li>
               </ul>
             </Col>
