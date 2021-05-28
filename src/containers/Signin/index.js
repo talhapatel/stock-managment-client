@@ -31,27 +31,27 @@ const Signin = (props) => {
   }
   return (
     <Layout>
-      <Container>
+      <Container fluid style={{ marginTop: "50px" }}>
         <Row style={{ marginTop: "50px" }}>
           <Col md={{ span: 6, offset: 3 }}>
             <Form onSubmit={userLogin}>
               <Input
-                label="UserName"
-                type="text"
-                placeholder="Enter User Name"
+                label='UserName'
+                type='text'
+                placeholder='Enter User Name'
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
               />
 
               <Input
-                label="Password"
-                type="password"
-                placeholder="Enter Password"
+                label='Password'
+                type='password'
+                placeholder='Enter Password'
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
 
-              <Button variant="primary" type="submit">
+              <Button variant='primary' type='submit'>
                 Submit
               </Button>
             </Form>
