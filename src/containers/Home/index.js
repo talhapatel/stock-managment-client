@@ -5,10 +5,10 @@ import Layout from "../../components/Layout";
 const Home = () => {
   return (
     <div>
-      <Layout>
+      <Layout sidebar='true'>
         <Jumbotron
           style={{ margin: "5rem", background: "white" }}
-          className="text-center"
+          className='text-center'
         >
           <h1>Welcome to Admin Dashboard</h1>
           <p>
